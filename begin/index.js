@@ -1,76 +1,38 @@
-// const { parse } = require('url');
-// const next = require('next');
-// const serverless = require('serverless-http');
-// const arc = require('@architect/functions')
-
-// const app = next({
-//   dev: false,quiet:false
-// });
-
-// console.log('here')
-// const requestHandler = app.getRequestHandler();
-//exports.handler = arc.http.express((req,res)=>requestHandler(req,res))
-
-//exports.handler =  async (req, res) => {
-// exports.handler = serverless(async (req, res) => {
-//  const parsedUrl = parse(req.url, true);
-//   //console.log(parsedUrl)
-//   //console.log(req)
-//    //requestHandler(req, res,parsedUrl);
-//    console.log(res);
-//  let out = await requestHandler(req, res, {url:req.url})
-// });
-// exports.handler = arc.http.async(async (req) => {
-//   let res
-//   let out = await requestHandler(req, res, {url:'/'})
-//   console.log(res)
-// return res})
-  
-
-
-const express = require("express");
 const next = require("next");
+const express= require("express")
 const react = require('react')
 const get_dom = require('react-dom')
 const arc = require('@architect/functions')
 
-//const port = parseInt(process.env.PORT, 10) || 3000;
 //const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev:false });
 const handle = app.getRequestHandler();
+//const port = process.env.PORT || 3000;
 
-let server = express()
+// exports.handler = arc.http.async(async () => {
+//   try {
+//     await app.prepare();
+//     const server = express();
+//     server.all("*", (req, res) => {
+//       return handle(req, res);
+//     });
+//     return server
+//   } catch (e) {
+//     console.error(e);
+//     process.exit(1);
+//   }
+// });
+
+let server= express()
+
 //server.get('/', (req, res) => res.send('Hello World!'))
-server.get('/alive', (req, res)=> res.send('very cool'))
+//server.get('/cool', (req, res)=> res.send('very cool'))
 server.get("*", (req, res) => {
-  return handle(req, res);
-});
+       return handle(req, res);
+     });
 
+const { parse } = require('url');
+const serverless = require('serverless-http');
+//app.handle=handle
 
-exports.handler = arc.http.express(server)
-//app
-//  .prepare()
-//  .then(() => {
-//    const server = express();
-//
- //   server.get("/", (req, res) => {
-//      return app.render(req, res, "/", req.params);
-//    });
-//
-//    server.get("/about", (req, res) => {
-//      return app.render(req, res, "/about", req.params);
-//    });
-
-//    server.get("*", (req, res) => {
-//      return handle(req, res);
-//    });
-//
-//    server.listen(port, err => {
-//      if (err) throw err;
-//      console.log(`> Ready on http://localhost:${port}`);
-//    });
-//  })
-//  .catch(ex => {
-//    console.log(ex);
-//    process.exit(1);
-//  });
+module.exports.handler = serverless(server)
