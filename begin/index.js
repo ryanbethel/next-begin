@@ -41,7 +41,7 @@ const handle = app.getRequestHandler();
 
 let server = express()
 //server.get('/', (req, res) => res.send('Hello World!'))
-//server.get('/cool', (req, res)=> res.send('very cool'))
+server.get('/alive', (req, res)=> res.send('very cool'))
 server.get("*", (req, res) => {
   return handle(req, res);
 });
