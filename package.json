@@ -9,12 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@architect/functions": "^3.14.1",
+    "express": "^4.17.1",
     "next": "11.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "serverless-http": "^2.7.0",
+    "url": "^0.11.0"
   },
   "devDependencies": {
+    "@architect/sandbox": "^3.7.3",
     "eslint": "7.29.0",
-    "eslint-config-next": "11.0.1"
+    "eslint-config-next": "11.0.1",
+    "next-aws-lambda-webpack-plugin": "^0.2.8"
   }
 }
