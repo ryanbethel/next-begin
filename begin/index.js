@@ -31,7 +31,7 @@
 const express = require("express");
 const next = require("next");
 const react = require('react')
-const get_dom = reqire('react-dom')
+const get_dom = require('react-dom')
 const arc = require('@architect/functions')
 
 //const port = parseInt(process.env.PORT, 10) || 3000;
