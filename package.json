@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@architect/architect": "^8.7.4",
     "@architect/functions": "^3.14.1",
     "express": "^4.17.1",
     "next": "11.0.1",
