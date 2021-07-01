@@ -10,7 +10,7 @@
 
 # next.js
 /.next/
-/begin-test/test-fat/.next
+/begin/.next
 /out/
 
 # production
