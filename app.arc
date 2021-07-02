@@ -1,7 +1,7 @@
 @app
-next-fat-lambda
+next-SSR
 
 @http
 /*
-  method any
+  method get
   src begin
